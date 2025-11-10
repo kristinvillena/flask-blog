@@ -1,0 +1,226 @@
+/* -------- Pink Modern Theme for Flask Blog -------- */
+
+:root {
+  --bg: #fff3f8;
+  --card: #ffffff;
+  --text: #333;
+  --muted: #777;
+  --primary: #ff5c8a;      /* main hot pink */
+  --primary-hover: #e94f7a;
+  --border: #ffd7e5;
+  --flash-bg: #ffe4ee;
+  --radius: 12px;
+  --shadow: 0 6px 20px rgba(255, 92, 138, 0.18);
+}
+
+/* Page layout */
+html {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  padding: 1.5rem;
+  color: var(--text);
+}
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+nav {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+}
+
+nav h1 {
+  margin: 0;
+}
+
+nav h1 a {
+  font-size: 1.6rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  gap: 0.8rem;
+}
+
+nav ul li a {
+  color: var(--muted);
+  padding: 0.45rem 0.8rem;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+nav ul li a:hover {
+  background: #ffe5ef;
+  color: var(--primary);
+}
+
+/* Content container */
+.content {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+/* Content header */
+.content > header {
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Headers */
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* Flash messages */
+.flash {
+  background: var(--flash-bg);
+  border-left: 4px solid var(--primary);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* -------- POSTS GRID -------- */
+.posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;      /* two columns */
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 760px) {
+  .posts {
+    grid-template-columns: 1fr;       /* one column on smaller screens */
+  }
+}
+
+/* Post card */
+.post {
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  background: #fff;
+  border: 2px solid var(--border);
+  transition: transform 0.15s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.post:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.post header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.post header h1 {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.4rem;
+}
+
+.post .about {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 0.8rem;
+}
+
+.post .body {
+  white-space: pre-line;
+}
+
+/* Buttons & actions */
+a.action {
+  text-decoration: none;
+  padding: 0.4rem 0.65rem;
+  border-radius: 8px;
+  color: white;
+  background: var(--primary);
+  font-weight: 600;
+  box-shadow: var(--shadow);
+}
+
+a.action:hover {
+  background: var(--primary-hover);
+}
+
+/* -------- FORM CONTROLS -------- */
+
+/* Force uniform input sizing (fixes Login username box issue) */
+.content input,
+.content textarea,
+.content select {
+  width: 100% !important;
+  display: block;
+  box-sizing: border-box;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background: #fff;
+  font-size: 1rem;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Remove browser inline size attributes */
+.content input[size] {
+  min-width: 0;
+}
+
+/* Focus styling */
+.content input:focus,
+.content textarea:focus,
+.content select:focus {
+  border-color: rgba(255, 92, 138, 0.45);
+  box-shadow: 0 6px 18px rgba(255, 92, 138, 0.08);
+}
+
+textarea {
+  min-height: 10rem;
+}
+
+/* Submit button */
+input[type="submit"] {
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius);
+  background: var(--primary);
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="submit"]:hover {
+  background: var(--primary-hover);
+}
+
+/* Danger button (Delete) */
+input.danger {
+  background: #cc0033;
+}
